@@ -11,5 +11,5 @@
 - HTML5, CSS and JavaScript
 - Weather API that provides the city of the client
 
-<img src="/preview.png" width="750"/>
+<img src="/preview.png" width="800"/>
 
