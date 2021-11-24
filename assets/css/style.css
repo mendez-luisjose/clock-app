@@ -1,0 +1,518 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+    /*========== Colors ==========*/
+    --hue-color: 240;
+
+    --first-color: hsl(var(--hue-color), 53%, 49%);
+    --title-color: hsl(var(--hue-color), 53%, 15%);
+    --text-color: hsl(var(--hue-color), 12%, 35%);
+    --text-color-light: hsl(var(--hue-color), 12%, 65%);
+    --white-color: #FFF;
+    --body-color: hsl(var(--hue-color), 24%, 94%);
+
+    --theme-rounder-blue: #3b3bbf;
+    --theme-rounder-green: #63cfa0;
+    --theme-rounder-orange: #cf9063;
+    --theme-rounder-pink: #cf6390;
+
+    --blue: hsl(240, 53%, 49%);
+    --green: hsl(154, 53%, 60%);
+    --orange: hsl(25, 53%, 60%);
+    --pink: hsl(335, 53%, 60%);
+
+      /*========== Font and typography ==========*/
+    --body-font: 'Poppins', sans-serif;
+    --biggest-font-size: 3rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+    --tiny-font-size: .625rem;
+    --medium-font-size: 1.3rem;
+
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+
+    /*========== Margenes Bottom ==========*/
+    --mb-0-25: .25rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2-5: 2.5rem;
+
+    /*========== z index ==========*/
+    --z-normal: 1;
+    --z-tooltip: 10;
+}
+
+@media screen and (min-width: 968px) {
+  :root {
+    --biggest-font-size: 3.5rem;
+    --small-font-size: .875rem;
+    --smaller-font-size: .813rem;
+    --tiny-font-size: .75rem;
+  }
+}
+
+/*========== Variables Dark theme ==========*/
+body.dark-theme {
+  --title-color: hsl(var(--hue-color), 12%, 95%);
+  --text-color: hsl(var(--hue-color), 12%, 75%);
+  --body-color: hsl(var(--hue-color), 10%, 16%);
+  transition: all 0.3s ease;
+}
+
+/*========== Box shadow Dark theme ==========*/
+.dark-theme .clock__circle {
+  box-shadow: 6px 6px 16px hsla(var(--hue-color), 8%, 12%, 1), 
+              -6px -6px 16px hsla(var(--hue-color), 8%, 20%, 1), 
+              inset -6px -6px 16px hsla(var(--hue-color), 8%, 20%, 1), 
+              inset 6px 6px 12px hsla(var(--hue-color), 8%, 12%, 1);
+  transition: all 0.3s ease;
+}
+
+.dark-theme .clock__theme {
+  box-shadow: inset -1px -1px 1px hsla(var(--hue-color), 8%, 20%, 1), 
+              inset 1px 1px 1px hsla(var(--hue-color), 8%, 12%, 1);
+  transition: all 0.3s ease;
+}
+
+.dark-theme .clock__theme-colors .palette {
+    box-shadow: inset -1px -1px 1px hsla(var(--hue-color), 8%, 20%, 1), 
+              inset 1px 1px 1px hsla(var(--hue-color), 8%, 12%, 1);
+    transition: all 0.3s ease;
+}
+
+.dark-theme .theme-colors__container {
+    box-shadow: inset -1px -1px 1px hsla(var(--hue-color), 8%, 20%, 1), 
+              inset 1px 1px 1px hsla(var(--hue-color), 8%, 12%, 1);
+    transition: all 0.3s ease;
+}
+
+/*========== Light theme Clock Image ==========*/
+.reloj-logo-black {
+    display: none;
+}
+
+/*========== Dark theme Clock Image ==========*/
+
+.dark-theme .clock__logo .reloj-logo {
+    display: none;
+}
+
+.dark-theme .clock__logo .reloj-logo-black {
+    width: 40px;
+    height: 40px;
+    display: block;
+    border-radius: 50%;;
+    transition: all 0.3s ease;
+}
+
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  
+}
+
+body {
+  margin: 0;
+  font-family: var(--body-font);
+  background-color: var(--body-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*========== Button Dark/Light ==========*/
+.clock__theme {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  display: flex;
+  padding: .25rem;
+  border-radius: 50%;
+  box-shadow: inset -1px -1px 1px hsla(var(--hue-color), 0%, 100%, 1), 
+              inset 1px 1px 1px hsla(var(--hue-color), 30%, 86%, 1);
+  color: var(--first-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+
+/*========== Button Theme Colors ==========*/
+.clock__theme-colors {
+    position: absolute;
+    top: -1rem;
+    left: -1rem;
+    
+}
+
+.clock__theme-colors .palette {
+  padding: .25rem;
+  border-radius: 50%;
+  box-shadow: inset -1px -1px 1px hsla(var(--hue-color), 0%, 100%, 1), 
+              inset 1px 1px 1px hsla(var(--hue-color), 30%, 86%, 1);
+  color: var(--first-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-colors__container {
+  display: flex;
+  flex-direction: column;
+  transform: translate(-40px, 10px);
+  box-shadow: inset -1px -1px 1px hsla(var(--hue-color), 0%, 100%, 1), 
+              inset 1px 1px 1px hsla(var(--hue-color), 30%, 86%, 1);
+  padding: 5px 10px 5px;
+  border-radius: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.theme-colors__container.open {
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.3s ease;
+}
+
+.theme-colors__container .btn {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  margin: 5px 0px;
+  cursor: pointer;
+}
+
+
+.theme-colors__container .btn.blue {
+  background-color: var(--blue);
+}
+
+.theme-colors__container .btn.blue.active {
+  box-shadow: 0 0 0 2px var(--white-color),
+              0 0 0 4px var(--theme-rounder-blue);
+}
+
+.theme-colors__container .btn.orange {
+  background-color: var(--orange);
+}
+
+.theme-colors__container .btn.orange.active {
+  background-color: var(--orange);
+  box-shadow: 0 0 0 2px var(--white-color),
+              0 0 0 4px var(--theme-rounder-orange);
+}
+
+.theme-colors__container .btn.green {
+  background-color: var(--green);
+}
+
+.theme-colors__container .btn.green.active {
+  background-color: var(--green);
+  box-shadow: 0 0 0 2px var(--white-color),
+              0 0 0 4px var(--theme-rounder-green);
+}
+
+.theme-colors__container .btn.pink {
+  background-color: var(--pink);
+}
+
+.theme-colors__container .btn.pink.active {
+  background-color: var(--pink);
+  box-shadow: 0 0 0 2px var(--white-color),
+              0 0 0 4px var(--theme-rounder-pink);
+
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 968px;
+  margin-left: var(--mb-1);
+  margin-right: var(--mb-1);
+  display: none;
+}
+
+.grid {
+  display: grid;
+}
+
+/*=============== CLOCK ===============*/
+.clock__container {
+  height: 100vh;
+  grid-template-rows: 1fr max-content;
+  
+}
+
+.clock__circle {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    box-shadow: -6px -6px 16px var(--white-color), 
+              6px 6px 16px hsla(var(--hue-color), 30%, 86%, 1), 
+              inset 6px 6px 16px hsla(var(--hue-color), 30%, 86%, 1), 
+              inset -6px -6px 16px var(--white-color);
+    border-radius: 50%;
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--first-color);
+    
+}
+
+.clock__content {
+  align-self: center;
+  row-gap: 2.5rem;
+  
+}
+
+
+.clock__twelve, 
+.clock__three, 
+.clock__six, 
+.clock__nine {
+  position: absolute;
+  width: 1rem;
+  height: 1px;
+  background-color: var(--text-color-light);
+}
+
+.clock__twelve, 
+.clock__six {
+  transform: translateX(-50%) rotate(90deg);
+}
+
+.clock__twelve {
+  top: 1.25rem;
+  left: 50%;
+}
+
+.clock__six {
+  bottom: 1.25rem;
+  left: 50%;
+}
+
+.clock__three {
+  top: 50%;
+  right: .75rem;
+}
+
+.clock__nine {
+  left: .75rem;
+  top: 50%;
+}
+
+.clock__rounder {
+  width: .75rem;
+  height: .75rem;
+  background-color: var(--first-color);
+  border-radius: 50%;
+  border: 2px solid var(--body-color);
+  z-index: var(--z-tooltip);
+  transition: all 0.3s ease;
+}
+
+.clock__hour, 
+.clock__minutes, 
+.clock__seconds {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.clock__hour {
+  width: 105px;
+  height: 105px;
+  
+}
+
+.clock__hour::before {
+    content: "";
+    position: absolute;
+    background-color: var(--text-color);
+    width: .25rem;
+    height: 3rem;
+    border-radius: .75rem;
+    z-index: var(--z-normal);
+    
+}
+
+.clock__minutes {
+  width: 136px;
+  height: 136px;
+ 
+}
+
+.clock__minutes::before {
+  content: '';
+  position: absolute;
+  background-color: var(--text-color);
+  width: .25rem;
+  height: 4rem;
+  border-radius: .75rem;
+  z-index: var(--z-normal);
+}
+
+.clock__seconds {
+  width: 130px;
+  height: 130px;
+  
+}
+
+.clock__seconds::before {
+  content: '';
+  position: absolute;
+  background-color: var(--first-color);
+  width: .125rem;
+  height: 5rem;
+  border-radius: .75rem;
+  z-index: var(--z-normal);
+}
+
+.clock__logo {
+  width: max-content;
+  justify-self: center;
+  margin-bottom: var(--mb-2-5);
+}
+
+.reloj-logo {
+    width: 40px;
+    height: 40px;
+}
+
+
+.clock__text {
+  display: flex;
+  justify-content: center;
+}
+
+.clock__text-hour, 
+.clock__text-minutes {
+  font-size: var(--biggest-font-size);
+  font-weight: var(--font-medium);
+  color: var(--title-color);
+}
+
+.clock__text-ampm {
+  font-size: var(--tiny-font-size);
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+  margin-left: var(--mb-0-25);
+}
+
+.clock__country {
+    text-align: center;
+    font-size: var(--medium-font-size);
+    font-weight: var(--font-medium);
+    margin-bottom: var(--mb-1);
+}
+
+.clock__date {
+  text-align: center;
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+}
+
+/*=============== MEDIA QUERIES ===============*/
+/* For large devices */
+@media screen and (min-width: 968px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .clock__logo {
+    margin-bottom: 3rem;
+  }
+
+  .clock__circle {
+    width: 250px;
+    height: 250px;
+  }
+
+  .theme-colors__container {
+    transform: translate(-50px, 10px);
+  }
+}
+
+/*=============== CSS SPINNER ===============*/
+.div-spinner-container {
+  background-color: var(--body-color);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: load7 1.8s infinite ease-in-out;
+  animation: load7 1.8s infinite ease-in-out;
+}
+.loader {
+  color: var(--first-color);
+  font-size: 10px;
+  margin: 80px auto;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.loader:before,
+.loader:after {
+  content: '';
+  position: absolute;
+  top: 0;
+}
+.loader:before {
+  left: -3.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  left: 3.5em;
+}
+@-webkit-keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+@keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+
+

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--==================== BOXICONS ====================-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <!--==================== CSS ==========-->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="icon" href="./assets/img/page-icon.ico">
+    <title>Reloj Digital</title>
+</head>
+<body>
+    <section class="clock container">
+        <div class="clock__container grid">
+            <div class="clock__content grid">
+                <div class="clock__circle">
+                    <span class="clock__twelve"></span>
+                    <span class="clock__three"></span>
+                    <span class="clock__six"></span>
+                    <span class="clock__nine"></span>
+
+                    <div class="clock__rounder"></div>
+                    <div class="clock__hour" id="clock-hour"></div>
+                    <div class="clock__minutes" id="clock-minutes"></div>
+                    <div class="clock__seconds" id="clock-seconds"></div>
+
+                    <div class="clock__theme">
+                        <i class='bx bxs-moon' id="theme-button"></i>
+                    </div>
+
+                    <div class="clock__theme-colors">
+                        <i class='bx bxs-palette palette'></i>
+                        <div class="theme-colors__container">
+                            <button class="btn blue active" color="blue" id="blue"></button>
+                            <button class="btn orange" color="orange" id="orange"></button>
+                            <button class="btn green" color="green" id="green"></button>
+                            <button class="btn pink" color="pink" id="pink"></button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="clock-text-date__container">
+                    <div class="clock__text">
+                        <div class="clock__text-hour" id="text-hour">00:</div>
+                        <div class="clock__text-minutes" id="text-minutes">00</div>
+                        <div class="clock__text-ampm" id="text-ampm">AM</div>
+                    </div>
+
+                    <div class="clock__country">
+                        <span class="country">-</span>
+                    </div>
+
+                    <div class="clock__date">
+                        <span id="date-day-week">-</span>
+                        <span id="date-day">-</span>
+                        <span id="date-month">-</span>
+                        <span id="date-year">-</span>
+                    </div>
+                </div>
+            </div>
+            <!--==========Imagen de un Reloj para cada tema claro/oscuro=========-->
+            <div class="clock__logo">
+                <figure><img class="reloj-logo" src="./assets/img/reloj-tema-claro.png" alt="Imagen de un Reloj"></figure>
+                <figure><img class="reloj-logo-black" src="./assets/img/reloj-tema-oscuro.png" alt="Imagen de un Reloj"/></figure>
+            </div>
+        </div>
+    </section>
+    
+
+    <!--==================== SPINNER ====================-->
+    <div class="div-spinner-container">
+        <div class="loader">Loading...</div>
+    </div>
+    
+
+    <!--==================== Java Script ====================-->
+    <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/moduls/darkLightTheme/darkLightTheme.js"></script>
+    <script src="./assets/js/moduls/themesColors/themeColors.js"></script>
+    <script src="./assets/js/moduls/api/api.js"></script>
+    
+</body>
+</html>
